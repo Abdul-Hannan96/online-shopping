@@ -1,0 +1,141 @@
+---
+title: "Modeling Purchase Intent: Feature Selection and Interpretation"
+format: 
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "🧠 Model Insights"
+    code-fold: false
+    echo: false
+    message: false
+    warning: false
+    fig-align: center
+    fig-cap-location: bottom
+    smooth-scroll: true
+execute:
+  cache: true
+---
+
+## 🧪 Comparing Predictors
+
+```{r}
+#| label: load-libraries
+#| include: false
+
+library(tidyverse)
+library(tidymodels)
+library(broom)
+library(marginaleffects)
+library(knitr)
+```
+
+```{r}
+#| label: load-data
+
+df <- read_csv("online_shoppers_intention.csv") |>
+  mutate(
+    Revenue = factor(Revenue, levels = c("FALSE", "TRUE")),
+    VisitorType = fct_lump(VisitorType, n = 2)
+  ) |>
+  drop_na(PageValues, BounceRates, ExitRates, ProductRelated_Duration, Revenue)
+
+```
+
+```{r}
+# Fit logistic regression models
+model1 <- logistic_reg() |> fit(Revenue ~ PageValues + BounceRates, data = df)
+model2 <- logistic_reg() |> fit(Revenue ~ ProductRelated_Duration + ExitRates, data = df)
+model3 <- logistic_reg() |> fit(Revenue ~ PageValues + ProductRelated_Duration + ExitRates + BounceRates, data = df)
+
+# Compare models with pseudo R-squared (Tjur’s R2)
+compare_models <- function(model, name) {
+  data.frame(
+    model = name,
+    r2_tjur = performance::r2_tjur(model$fit)
+  )
+}
+
+results <- bind_rows(
+  compare_models(model1, "PageValues + BounceRates"),
+  compare_models(model2, "ProductDuration + ExitRates"),
+  compare_models(model3, "All 4 Predictors")
+)
+
+results |>
+  mutate(r2_tjur = scales::percent(r2_tjur, accuracy = 0.1)) |>
+  kable(caption = "Model Comparison Based on Tjur’s R² (Explained Variance)")
+
+```
+
+## 📐 Model Formula
+
+We selected the final model based on the best performance (Tjur’s R²). This model helps explain how different features affect the likelihood of a purchase:
+
+$$
+\text{logit}(P(\text{Purchase})) = \beta_0 + \beta_1 \cdot \text{PageValues} + \beta_2 \cdot \text{ProductDuration} + \beta_3 \cdot \text{BounceRates} + \beta_4 \cdot \text{ExitRates}
+$$
+
+**Where:**
+
+- $\text{logit}(P)$ = log odds of making a purchase  
+- `PageValues` = value of pages visited by the user  
+- `ProductDuration` = time spent on product-related pages  
+- `BounceRates` = likelihood user left after landing  
+- `ExitRates` = rate of exiting from a particular page  
+- $\beta_0$–$\beta_4$ = model coefficients
+
+---
+
+```{r}
+# Show model coefficients
+tidy(model3, conf.int = TRUE, exponentiate = TRUE) |> 
+  select(term, estimate, conf.low, conf.high) |>
+  rename(Odds_Ratio = estimate, CI_low = conf.low, CI_high = conf.high) |>
+  kable(caption = "Odds Ratios and 95% Confidence Intervals  
+  Source: Online Shoppers Intention Dataset")
+
+```
+
+<br>
+<br>
+
+```{r}
+#| label: fig-interaction-heatmap
+#| fig-cap: "Predicted Purchase Probability by Page Values and Bounce Rates"
+#| fig-align: center
+#| fig-width: 7
+#| fig-height: 5
+#| echo: false
+#| message: false
+#| warning: false
+
+library(ggplot2)
+
+new_data <- expand.grid(
+  PageValues = seq(min(df$PageValues), max(df$PageValues), length.out = 100),
+  BounceRates = seq(min(df$BounceRates), max(df$BounceRates), length.out = 100),
+  ProductRelated_Duration = mean(df$ProductRelated_Duration),
+  ExitRates = mean(df$ExitRates)
+)
+
+new_data$predicted_prob <- predict(model3$fit, newdata = new_data, type = "response")
+
+ggplot(new_data, aes(x = PageValues, y = BounceRates, fill = predicted_prob)) +
+  geom_tile() +
+  scale_fill_viridis_c(name = "Purchase Probability", option = "plasma") +
+  labs(
+    title = "Interaction of Page Values and Bounce Rates",
+    x = "Page Values",
+    y = "Bounce Rate"
+  ) +
+  theme_minimal(base_size = 13)
+
+```
+This heatmap shows how **Page Values** and **Bounce Rates** together affect the probability of a purchase. Higher Page Values increase purchase chances, especially when Bounce Rates are low. The warmer the color, the higher the predicted probability.
+
+## 📌 Key Takeaways
+
+- **PageValues** had the strongest positive effect on the chance of purchase.
+- **BounceRates** and **ExitRates** both reduce the odds of purchase, suggesting user disinterest.
+- Visitors who spent more time on product-related pages were more likely to make a purchase.
+- The final model gives simple and useful insights that can help improve the website and marketing strategies.
