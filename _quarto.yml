@@ -2,20 +2,24 @@ project:
   type: website
 
 website:
-  title: "online-shopping"
+  title: "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>"
   navbar:
+    background: "#ff6f00"     # Vibrant orange (CTA color)
+    foreground: "#ffffff"     # White text
+    logo: C:\Users\HP\OneDrive\Desktop\projects\online-shopping\shopping-logo.png     # Make sure this path and image exists
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "HOME"
+        file: index.qmd
+      - text: "ANALYSIS"
+        file: analysis.qmd
+      - text: "MODEL"
+        file: model.qmd
+      - text: "ABOUT"
+        file: about.qmd
+      - text: "SOURCE"
+        file: source.qmd
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
-    toc: true
-
-
-

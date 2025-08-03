@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
+    "section": "",
+    "text": "The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html#what-drives-online-purchases",
+    "href": "index.html#what-drives-online-purchases",
+    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
+    "section": "",
+    "text": "The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase."
+  },
+  {
+    "objectID": "index.html#ggplotlyp",
+    "href": "index.html#ggplotlyp",
+    "title": "Load the real dataset",
+    "section": "ggplotly(p)",
+    "text": "ggplotly(p)"
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
+    "section": "🛍️ Summary:",
+    "text": "🛍️ Summary:\nThis project explores how online shopping behavior predicts whether someone completes a purchase.\nWe used data from the UCI Machine Learning Repository, collected by the Faculty of Computer Science and Engineering at Gazi University (2018). The goal? To uncover which behaviors — like product page views, bounce rates, and session duration — actually signal a shopper is likely to buy.\n🧪 We modeled purchase behavior using a logistic regression, where the outcome was whether a person made a purchase (yes or no).\nKey predictors in our model:\n🔎 Product Pages Viewed\n⏳ Time Spent on Site\n🚪 Bounce Rate (leaving the site quickly)\n💡 Insight: People who view more product pages are about 35% more likely to make a purchase — even after accounting for time spent on the site and whether they bounced (with a margin of error of ±3%)."
+  }
+]

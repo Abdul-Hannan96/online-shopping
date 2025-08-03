@@ -1,7 +1,103 @@
----
-title: "online-shopping"
----
+## What Drives Online Purchases?
 
-This is a Quarto website.
+The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+library(tidyverse)
+library(plotly)
+
+# Load the real dataset
+data <- read_csv("online_shoppers_intention.csv")
+
+# Clean and prepare data
+plot_data <- data %>%
+  filter(!is.na(PageValues)) %>%
+  mutate(
+    ProductRelated = pmin(ProductRelated, 30),  # Limit extreme values for clarity
+    PageValues = pmin(PageValues, 100),         # Limit extreme values
+    Revenue = ifelse(Revenue == TRUE, "Purchased", "Not Purchased")
+  )
+
+# Summarize by groups and create custom hover text
+summary_data <- plot_data %>%
+  group_by(ProductRelated, PageValues) %>%
+  summarise(
+    PurchaseRate = mean(Revenue == "Purchased"),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    hover_text = paste0(
+      "Product Views: ", ProductRelated, "\n",
+      "Page Value: $", round(PageValues, 2), "\n",
+      "Purchase Rate: ", round(PurchaseRate * 100, 1), "%"
+    )
+  )
+
+# Create ggplot
+p <- ggplot(summary_data, aes(
+  x = ProductRelated,
+  y = PageValues,
+  size = PurchaseRate,
+  color = PurchaseRate,
+  text = hover_text
+)) +
+  geom_point(alpha = 0.7) +
+  scale_color_viridis_c(option = "C") +
+  labs(
+    x = "🛍️ Product Pages Viewed",
+    y = "💰 Page Value (Engagement)",
+    size = "Purchase Rate",
+    title = "🧠 Engagement Predicts Online Purchases"
+  ) +
+  theme_minimal()
+
+# Convert to plotly with font styling and no modebar
+ggplotly(p, tooltip = "text") %>%
+  layout(
+    title = list(
+      text = "<b>🧠 Engagement Predicts Online Purchases</b>",
+      font = list(family = "Georgia", size = 20, color = "#333333")
+    ),
+    xaxis = list(
+      title = list(
+        text = "🛍️ Product Pages Viewed",
+        font = list(family = "Georgia", size = 14, color = "#333333")
+      )
+    ),
+    yaxis = list(
+      title = list(
+        text = "💰 Page Value (Engagement)",
+        font = list(family = "Georgia", size = 14, color = "#333333")
+      )
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+```
+<br>
+<br>
+
+## 🛍️ Summary:
+This project explores how online shopping behavior predicts whether someone completes a purchase.
+
+We used data from the UCI Machine Learning Repository, collected by the Faculty of Computer Science and Engineering at Gazi University (2018). The goal?
+To uncover which behaviors — like product page views, bounce rates, and session duration — actually signal a shopper is likely to buy.
+
+🧪 We modeled purchase behavior using a logistic regression, where the outcome was whether a person made a purchase (yes or no).
+
+**Key predictors in our model:**
+
+🔎 Product Pages Viewed
+
+⏳ Time Spent on Site
+
+🚪 Bounce Rate (leaving the site quickly)
+
+💡 **Insight:**
+People who view more product pages are about 35% more likely to make a purchase —
+even after accounting for time spent on the site and whether they bounced
+(with a margin of error of ±3%).
+
