@@ -1,0 +1,203 @@
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| fig.width: 10
+#| fig.height: 5
+
+library(scales)
+library(stringr)
+library(tidyverse)
+library(plotly)
+library(ggridges)
+library(dplyr)
+
+# Load the real dataset
+data <- read_csv("online_shoppers_intention.csv")
+
+# Clean and prepare data
+plot_data <- data %>%
+  filter(!is.na(PageValues)) %>%
+  mutate(
+    ProductRelated = pmin(ProductRelated, 30),  # Limit extreme values for clarity
+    PageValues = pmin(PageValues, 100),         # Limit extreme values
+    Revenue = ifelse(Revenue == TRUE, "Purchased", "Not Purchased")
+  )
+
+visitor_summary <- data %>%
+  mutate(VisitorType = case_when(
+    VisitorType == "Returning_Visitor" ~ "Returning Visitor",
+    VisitorType == "New_Visitor" ~ "New Visitor",
+    TRUE ~ "Other"
+  )) %>%
+  group_by(VisitorType) %>%
+  summarise(PurchaseRate = mean(Revenue == "TRUE")) %>%
+  mutate(VisitorType = fct_reorder(VisitorType, PurchaseRate))
+
+# Wrap long title
+wrapped_title <- str_wrap("👥 Visitors Who Return Are Significantly More Likely to Make a Purchase", width = 50)
+
+ggplot(visitor_summary, aes(x = PurchaseRate, y = VisitorType, fill = PurchaseRate)) +
+  geom_col(width = 0.6, color = "white") +
+  scale_fill_viridis_c(option = "C", labels = percent_format(accuracy = 1)) +
+  scale_x_continuous(labels = percent_format(accuracy = 1)) +
+  labs(
+    x = "Purchase Rate",
+    y = "Visitor Type",
+    title = wrapped_title
+  ) +
+  theme_minimal(base_family = "Georgia") +
+  theme(
+    panel.background = element_rect(fill = "#f9f9f9", color = NA),
+    plot.background = element_rect(fill = "#f0f0f5", color = NA),
+    plot.title = element_text(size = 17, face = "bold", color = "#222222", margin = margin(b = 10))
+  )
+
+```
+
+::: {.callout-note}
+
+This chart reveals that returning visitors are significantly more likely to make a purchase compared to new visitors or those categorized as "Other." It suggests that people who come back to the website are more confident or more interested in buying. Therefore, encouraging users to return through targeted marketing or personalized experiences can help boost overall sales.
+
+:::
+
+
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| fig.width: 10
+#| fig.height: 5
+
+# Prepare summary data
+weekend_summary <- data %>%
+  group_by(Weekend) %>%
+  summarise(AverageBounceRate = mean(BounceRates, na.rm = TRUE))
+
+
+ggplot(data, aes(x = ExitRates, y = factor(Month), fill = ..x..)) +
+  geom_density_ridges_gradient(scale = 2, rel_min_height = 0.01, color = "white") +
+  scale_fill_viridis_c(option = "C", labels = percent_format(accuracy = 1)) +  # Fix legend labels
+  scale_x_continuous(labels = percent_format(accuracy = 1)) +
+  labs(
+    x = "Exit Rate",
+    y = "Month",
+    title = str_wrap("📆 Seasonal Patterns in Exit Rates", width = 50),
+    fill = "Exit Rate"
+  ) +
+  theme_minimal(base_family = "Georgia") +
+  theme(
+    panel.background = element_rect(fill = "#f9f9f9", color = NA),
+    plot.background = element_rect(fill = "#f0f0f5", color = NA),
+    plot.title = element_text(size = 17, face = "bold", color = "#222222", margin = margin(b = 10),hjust = 0.5)
+  )
+
+
+```
+::: {.callout-note}
+
+Exit rates vary by month, showing seasonal trends in user behavior.
+Some months have more people leaving quickly, while others see users staying longer.
+Brighter colors and wider ridges highlight higher exit activity.
+This suggests that certain times of year may need better engagement strategies.
+
+:::
+
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| fig.width: 10
+#| fig.height: 5
+
+
+ggplot(data, aes(x = Weekend, y = BounceRates, fill = Weekend)) +
+  gghalves::geom_half_violin(side = "l", alpha = 0.6, color = NA) +
+  gghalves::geom_half_point(side = "r", shape = 21, size = 2, alpha = 0.7, color = "#555") +
+  scale_fill_manual(values = c("#E1BEE7", "#80DEEA")) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(
+    x = "Is Weekend?",
+    y = "Bounce Rate",
+    title = "🌦️ Bounce Rate Patterns: Weekend vs Weekday"
+  ) +
+  theme_minimal(base_family = "Georgia") +
+  theme(
+    legend.position = "none",
+    panel.background = element_rect(fill = "#f9f9f9", color = NA),
+    plot.background = element_rect(fill = "#f0f0f5", color = NA),
+    plot.title = element_text(size = 18, face = "bold", color = "#333", hjust = 0.5)
+  )
+
+```
+
+::: {.callout-note}
+
+This chart shows that bounce rates are usually higher and more spread out on weekends. It means people are more likely to leave the website without interacting when visiting on a weekend. On weekdays, bounce rates are lower and more consistent. This suggests that users are more engaged during weekdays.
+
+::: 
+
+
+
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| fig.width: 10
+#| fig.height: 5
+
+# Convert durations from seconds to minutes
+data_clean <- data %>%
+  mutate(
+    ProductRelated_Minutes = ProductRelated_Duration / 60,
+    Administrative_Minutes = Administrative_Duration / 60,
+    TrafficType = ifelse(TrafficType %in% c(1, 2, 3, 4, 5, 6),
+                         as.character(TrafficType), 
+                         "Other")
+  )
+
+# Label traffic types
+data_clean$TrafficType <- factor(data_clean$TrafficType,
+                                 levels = c("1", "2", "3", "4", "5", "6", "Other"),
+                                 labels = c("Direct", "Search Engine", "Referral", 
+                                            "Social Media", "Email", "Ads", "Other"))
+
+# Create plot with converted durations
+p <- ggplot(data_clean, aes(x = ProductRelated_Minutes, 
+                            y = Administrative_Minutes, 
+                            color = TrafficType)) +
+  geom_point(alpha = 0.6, size = 2) +
+  scale_color_viridis_d(option = "C") +
+  labs(
+    x = "Product-Related Duration (minutes)",
+    y = "Administrative Duration (minutes)",
+    color = "Traffic Type",
+    title = "⏱️ Time Spent by Traffic Source"
+  ) +
+  theme_minimal(base_family = "Georgia") +
+  theme(
+    panel.background = element_rect(fill = "#f9f9f9", color = NA),
+    plot.background = element_rect(fill = "#f0f0f5", color = NA),
+    plot.title = element_text(
+      size = 18,
+      face = "bold",
+      color = "#333",
+      hjust = 0.5  # centers the title
+    )
+  )
+
+ggplotly(p) %>% config(displayModeBar = FALSE)
+
+```
+::: {.callout-note}
+
+This chart shows how much time users spend on product-related and administrative pages.
+The points are colored by traffic type, helping us see which sources bring more engaged 
+visitors. Some traffic types result in longer visits to both sections,indicating high 
+purchase interest or intent.
+
+::: 
