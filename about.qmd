@@ -1,5 +1,31 @@
 ---
-title: "About"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Page Overview"
 ---
 
-About this site
+## About Me: Abdul Hannan
+**CS graduate from UMT Lahore** who loves to travel and is passionate about **data analysis** and **machine learning**. Actively exploring **R** and **statistical modeling** to deepen my data science expertise. Always learning, always curious.
+
+***
+
+## 📁 Project  
+**Online Shopping Behavior Analyzer**  
+**Description:**  
+A data-driven project analyzing customer purchasing patterns and behavior in online retail. It explores factors like browsing history, cart abandonment, seasonal trends, and promotional effectiveness to model and predict customer conversion rates and optimize sales strategies.
+
+***
+
+<br>  
+This project was developed as part of  
+**[Kane’s Data Science Bootcamp](https://bootcamp.davidkane.info/)**.  
+<br>
+
+***
+
+## 📬 Get In Touch  
+[![GitHub](https://img.shields.io/badge/GitHub-Abdul--Hannan96-181717?style=flat&logo=github)](https://github.com/Abdul-Hannan96)  
+[![Repository](https://img.shields.io/badge/Project%20Repo-online--shopping-blue?style=flat&logo=github)](https://github.com/Abdul-Hannan96/online-shopping)  
+[![Email](https://img.shields.io/badge/Email-abdul.hannan20008@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:abdul.hannan20008@gmail.com)

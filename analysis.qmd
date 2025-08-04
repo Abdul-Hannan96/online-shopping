@@ -1,10 +1,14 @@
-
+---
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Page Overview"
+---
 ```{r}
 #| message: false
 #| warning: false
 #| echo: false
-#| fig.width: 10
-#| fig.height: 5
 
 library(scales)
 library(stringr)
@@ -12,6 +16,16 @@ library(tidyverse)
 library(plotly)
 library(ggridges)
 library(dplyr)
+
+```
+
+## Bar Chart
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| fig.width: 10
+#| fig.height: 5
 
 # Load the real dataset
 data <- read_csv("online_shoppers_intention.csv")
@@ -62,7 +76,7 @@ This chart reveals that returning visitors are significantly more likely to make
 
 :::
 
-
+## Ridgeline Plot
 
 ```{r}
 #| message: false
@@ -105,7 +119,7 @@ This suggests that certain times of year may need better engagement strategies.
 
 :::
 
-
+## Split Violin Plot 
 ```{r}
 #| message: false
 #| warning: false
@@ -142,7 +156,7 @@ This chart shows that bounce rates are usually higher and more spread out on wee
 
 
 
-
+## Scatter Plot
 ```{r}
 #| message: false
 #| warning: false

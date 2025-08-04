@@ -1,3 +1,11 @@
+---
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Page Overview"
+---
+
 ## What Drives Online Purchases?
 
 The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase.
