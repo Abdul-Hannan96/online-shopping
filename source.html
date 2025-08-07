@@ -125,14 +125,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Page Overview</h2>
+    <h2 id="toc-title">Data Source</h2>
    
-  <ul>
-  <li><a href="#dataset-overview" id="toc-dataset-overview" class="nav-link active" data-scroll-target="#dataset-overview">🛒 Dataset Overview</a></li>
-  <li><a href="#official-dataset-link" id="toc-official-dataset-link" class="nav-link" data-scroll-target="#official-dataset-link">🔗 Official Dataset Link</a></li>
-  <li><a href="#why-this-dataset" id="toc-why-this-dataset" class="nav-link" data-scroll-target="#why-this-dataset">🧠 Why This Dataset?</a></li>
-  <li><a href="#dataset-authors" id="toc-dataset-authors" class="nav-link" data-scroll-target="#dataset-authors">👩‍🏫 Dataset Authors</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">📚 Citation</a></li>
+  <ul class="collapse">
+  <li><a href="#dataset-overview" id="toc-dataset-overview" class="nav-link active" data-scroll-target="#dataset-overview"><span class="header-section-number">1</span> 🛒 Dataset Overview</a></li>
+  <li><a href="#official-dataset-link" id="toc-official-dataset-link" class="nav-link" data-scroll-target="#official-dataset-link"><span class="header-section-number">2</span> 🔗 Official Dataset Link</a></li>
+  <li><a href="#why-this-dataset" id="toc-why-this-dataset" class="nav-link" data-scroll-target="#why-this-dataset"><span class="header-section-number">3</span> 🧠 Why This Dataset?</a></li>
+  <li><a href="#dataset-authors" id="toc-dataset-authors" class="nav-link" data-scroll-target="#dataset-authors"><span class="header-section-number">4</span> 👩‍🏫 Dataset Authors</a></li>
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation"><span class="header-section-number">5</span> 📚 Citation</a></li>
   </ul>
 </nav>
     </div>
@@ -158,19 +158,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="dataset-overview" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-overview">🛒 Dataset Overview</h2>
+<p><br></p>
+<section id="dataset-overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="dataset-overview"><span class="header-section-number">1</span> 🛒 Dataset Overview</h2>
 <p>The dataset used in this project comes from the <strong>UCI Machine Learning Repository</strong> and includes data from <strong>12,330 individual shopping sessions</strong>.</p>
 <p>Each session represents a <strong>unique user</strong> over the span of a <strong>one-year period</strong>. This design avoids biases caused by holidays, special events, or marketing campaigns.</p>
 <hr>
 </section>
-<section id="official-dataset-link" class="level2">
-<h2 class="anchored" data-anchor-id="official-dataset-link">🔗 Official Dataset Link</h2>
+<section id="official-dataset-link" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="official-dataset-link"><span class="header-section-number">2</span> 🔗 Official Dataset Link</h2>
 <p>🌐 <a href="https://archive.ics.uci.edu/ml/datasets/Online+Shoppers+Purchasing+Intention+Dataset">Online Shoppers Purchasing Intention Dataset – UCI Repository</a></p>
 <hr>
 </section>
-<section id="why-this-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-dataset">🧠 Why This Dataset?</h2>
+<section id="why-this-dataset" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="why-this-dataset"><span class="header-section-number">3</span> 🧠 Why This Dataset?</h2>
 <ul>
 <li>Based on <strong>real user behavior</strong></li>
 <li>Includes key features like:
@@ -184,8 +185,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="dataset-authors" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-authors">👩‍🏫 Dataset Authors</h2>
+<section id="dataset-authors" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="dataset-authors"><span class="header-section-number">4</span> 👩‍🏫 Dataset Authors</h2>
 <ul>
 <li><p><strong>C. Okan Sakar</strong><br>
 Department of Computer Engineering<br>
@@ -196,8 +197,8 @@ Istanbul, Turkey</p></li>
 </ul>
 <hr>
 </section>
-<section id="citation" class="level2">
-<h2 class="anchored" data-anchor-id="citation">📚 Citation</h2>
+<section id="citation" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="citation"><span class="header-section-number">5</span> 📚 Citation</h2>
 <p>If you use this dataset, please cite:</p>
 <blockquote class="blockquote">
 <p><strong>Sakar, C.O., Polat, S.O., Katircioglu, M. et al.</strong><br>
@@ -288,7 +289,7 @@ Irvine, CA: University of California, School of Information and Computer Science
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/Abdul-Hannan96\.github\.io\/online-shopping\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

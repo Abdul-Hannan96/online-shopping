@@ -1,156 +1,121 @@
 [
   {
-    "objectID": "source.html",
-    "href": "source.html",
-    "title": "📦 Data Source",
-    "section": "",
-    "text": "The dataset used in this project comes from the UCI Machine Learning Repository and includes data from 12,330 individual shopping sessions.\nEach session represents a unique user over the span of a one-year period. This design avoids biases caused by holidays, special events, or marketing campaigns."
-  },
-  {
     "objectID": "source.html#dataset-overview",
     "href": "source.html#dataset-overview",
     "title": "📦 Data Source",
-    "section": "",
-    "text": "The dataset used in this project comes from the UCI Machine Learning Repository and includes data from 12,330 individual shopping sessions.\nEach session represents a unique user over the span of a one-year period. This design avoids biases caused by holidays, special events, or marketing campaigns."
+    "section": "1 🛒 Dataset Overview",
+    "text": "1 🛒 Dataset Overview\nThe dataset used in this project comes from the UCI Machine Learning Repository and includes data from 12,330 individual shopping sessions.\nEach session represents a unique user over the span of a one-year period. This design avoids biases caused by holidays, special events, or marketing campaigns."
   },
   {
     "objectID": "source.html#official-dataset-link",
     "href": "source.html#official-dataset-link",
     "title": "📦 Data Source",
-    "section": "🔗 Official Dataset Link",
-    "text": "🔗 Official Dataset Link\n🌐 Online Shoppers Purchasing Intention Dataset – UCI Repository"
+    "section": "2 🔗 Official Dataset Link",
+    "text": "2 🔗 Official Dataset Link\n🌐 Online Shoppers Purchasing Intention Dataset – UCI Repository"
   },
   {
     "objectID": "source.html#why-this-dataset",
     "href": "source.html#why-this-dataset",
     "title": "📦 Data Source",
-    "section": "🧠 Why This Dataset?",
-    "text": "🧠 Why This Dataset?\n\nBased on real user behavior\nIncludes key features like:\n\nTime spent on pages\nProduct views\nBounce and exit rates\nVisitor type and session details\n\nUseful for modeling purchase prediction"
+    "section": "3 🧠 Why This Dataset?",
+    "text": "3 🧠 Why This Dataset?\n\nBased on real user behavior\nIncludes key features like:\n\nTime spent on pages\nProduct views\nBounce and exit rates\nVisitor type and session details\n\nUseful for modeling purchase prediction"
   },
   {
     "objectID": "source.html#dataset-authors",
     "href": "source.html#dataset-authors",
     "title": "📦 Data Source",
-    "section": "👩‍🏫 Dataset Authors",
-    "text": "👩‍🏫 Dataset Authors\n\nC. Okan Sakar\nDepartment of Computer Engineering\nBahcesehir University, Istanbul, Turkey\nYomi Kastro\nInveon Information Technologies\nIstanbul, Turkey"
+    "section": "4 👩‍🏫 Dataset Authors",
+    "text": "4 👩‍🏫 Dataset Authors\n\nC. Okan Sakar\nDepartment of Computer Engineering\nBahcesehir University, Istanbul, Turkey\nYomi Kastro\nInveon Information Technologies\nIstanbul, Turkey"
   },
   {
     "objectID": "source.html#citation",
     "href": "source.html#citation",
     "title": "📦 Data Source",
-    "section": "📚 Citation",
-    "text": "📚 Citation\nIf you use this dataset, please cite:\n\nSakar, C.O., Polat, S.O., Katircioglu, M. et al.\nNeural Computing and Applications (2018).\nView Paper\n\nAlso:\n\nDua, D. and Graff, C. (2019)\nUCI Machine Learning Repository\nIrvine, CA: University of California, School of Information and Computer Science."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "",
-    "text": "The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase."
+    "section": "5 📚 Citation",
+    "text": "5 📚 Citation\nIf you use this dataset, please cite:\n\nSakar, C.O., Polat, S.O., Katircioglu, M. et al.\nNeural Computing and Applications (2018).\nView Paper\n\nAlso:\n\nDua, D. and Graff, C. (2019)\nUCI Machine Learning Repository\nIrvine, CA: University of California, School of Information and Computer Science."
   },
   {
     "objectID": "index.html#what-drives-online-purchases",
     "href": "index.html#what-drives-online-purchases",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "",
-    "text": "The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase."
+    "title": "📘 Introduction",
+    "section": "1 What Drives Online Purchases?",
+    "text": "1 What Drives Online Purchases?\nThe visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase."
   },
   {
     "objectID": "index.html#summary",
     "href": "index.html#summary",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "🛍️ Summary:",
-    "text": "🛍️ Summary:\nThis project explores how online shopping behavior predicts whether someone completes a purchase.\nWe used data from the UCI Machine Learning Repository, collected by the Faculty of Computer Science and Engineering at Gazi University (2018). The goal? To uncover which behaviors — like product page views, bounce rates, and session duration — actually signal a shopper is likely to buy.\n🧪 We modeled purchase behavior using a logistic regression, where the outcome was whether a person made a purchase (yes or no).\nKey predictors in our model:\n🔎 Product Pages Viewed\n⏳ Time Spent on Site\n🚪 Bounce Rate (leaving the site quickly)\n💡 Insight: People who view more product pages are about 35% more likely to make a purchase — even after accounting for time spent on the site and whether they bounced (with a margin of error of ±3%)."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "",
-    "text": "CS graduate from UMT Lahore who loves to travel and is passionate about data analysis and machine learning. Actively exploring R and statistical modeling to deepen my data science expertise. Always learning, always curious."
+    "title": "📘 Introduction",
+    "section": "2 🛍️ Summary:",
+    "text": "2 🛍️ Summary:\nThis project explores how online shopping behavior predicts whether someone completes a purchase.\nWe used data from the UCI Machine Learning Repository, collected by the Faculty of Computer Science and Engineering at Gazi University (2018). The goal? To uncover which behaviors — like product page views, bounce rates, and session duration — actually signal a shopper is likely to buy.\n🧪 We modeled purchase behavior using a logistic regression, where the outcome was whether a person made a purchase (yes or no).\nKey predictors in our model:\n🔎 Product Pages Viewed\n⏳ Time Spent on Site\n🚪 Bounce Rate (leaving the site quickly)\n💡 Insight: People who view more product pages are about 35% more likely to make a purchase — even after accounting for time spent on the site and whether they bounced (with a margin of error of ±3%)."
   },
   {
     "objectID": "about.html#about-me-abdul-hannan",
     "href": "about.html#about-me-abdul-hannan",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "",
-    "text": "CS graduate from UMT Lahore who loves to travel and is passionate about data analysis and machine learning. Actively exploring R and statistical modeling to deepen my data science expertise. Always learning, always curious."
+    "title": "👤 About Me",
+    "section": "1 About Me: Abdul Hannan",
+    "text": "1 About Me: Abdul Hannan\nCS graduate from UMT Lahore who loves to travel and is passionate about data analysis and machine learning. Actively exploring R and statistical modeling to deepen my data science expertise. Always learning, always curious."
   },
   {
     "objectID": "about.html#project",
     "href": "about.html#project",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "📁 Project",
-    "text": "📁 Project\nOnline Shopping Behavior Analyzer\nDescription:\nA data-driven project analyzing customer purchasing patterns and behavior in online retail. It explores factors like browsing history, cart abandonment, seasonal trends, and promotional effectiveness to model and predict customer conversion rates and optimize sales strategies.\n\n\nThis project was developed as part of\nKane’s Data Science Bootcamp."
+    "title": "👤 About Me",
+    "section": "2 📁 Project",
+    "text": "2 📁 Project\nOnline Shopping Behavior Analyzer\nDescription:\nA data-driven project analyzing customer purchasing patterns and behavior in online retail. It explores factors like browsing history, cart abandonment, seasonal trends, and promotional effectiveness to model and predict customer conversion rates and optimize sales strategies.\n\n\nThis project was developed as part of\nKane’s Data Science Bootcamp."
   },
   {
     "objectID": "about.html#get-in-touch",
     "href": "about.html#get-in-touch",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "📬 Get In Touch",
-    "text": "📬 Get In Touch"
-  },
-  {
-    "objectID": "analysis.html",
-    "href": "analysis.html",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "",
-    "text": "Note\n\n\n\nThis chart reveals that returning visitors are significantly more likely to make a purchase compared to new visitors or those categorized as “Other.” It suggests that people who come back to the website are more confident or more interested in buying. Therefore, encouraging users to return through targeted marketing or personalized experiences can help boost overall sales."
+    "title": "👤 About Me",
+    "section": "3 📬 Get In Touch",
+    "text": "3 📬 Get In Touch"
   },
   {
     "objectID": "analysis.html#bar-chart",
     "href": "analysis.html#bar-chart",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "",
-    "text": "Note\n\n\n\nThis chart reveals that returning visitors are significantly more likely to make a purchase compared to new visitors or those categorized as “Other.” It suggests that people who come back to the website are more confident or more interested in buying. Therefore, encouraging users to return through targeted marketing or personalized experiences can help boost overall sales."
+    "title": "📈 Visualizations",
+    "section": "1 Bar Chart",
+    "text": "1 Bar Chart\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis chart reveals that returning visitors are significantly more likely to make a purchase compared to new visitors or those categorized as “Other.” It suggests that people who come back to the website are more confident or more interested in buying. Therefore, encouraging users to return through targeted marketing or personalized experiences can help boost overall sales."
   },
   {
     "objectID": "analysis.html#ridgeline-plot",
     "href": "analysis.html#ridgeline-plot",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "Ridgeline Plot",
-    "text": "Ridgeline Plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExit rates vary by month, showing seasonal trends in user behavior. Some months have more people leaving quickly, while others see users staying longer. Brighter colors and wider ridges highlight higher exit activity. This suggests that certain times of year may need better engagement strategies."
+    "title": "📈 Visualizations",
+    "section": "2 Ridgeline Plot",
+    "text": "2 Ridgeline Plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExit rates vary by month, showing seasonal trends in user behavior. Some months have more people leaving quickly, while others see users staying longer. Brighter colors and wider ridges highlight higher exit activity. This suggests that certain times of year may need better engagement strategies."
   },
   {
     "objectID": "analysis.html#split-violin-plot",
     "href": "analysis.html#split-violin-plot",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "Split Violin Plot",
-    "text": "Split Violin Plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis chart shows that bounce rates are usually higher and more spread out on weekends. It means people are more likely to leave the website without interacting when visiting on a weekend. On weekdays, bounce rates are lower and more consistent. This suggests that users are more engaged during weekdays."
+    "title": "📈 Visualizations",
+    "section": "3 Split Violin Plot",
+    "text": "3 Split Violin Plot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis chart shows that bounce rates are usually higher and more spread out on weekends. It means people are more likely to leave the website without interacting when visiting on a weekend. On weekdays, bounce rates are lower and more consistent. This suggests that users are more engaged during weekdays."
   },
   {
     "objectID": "analysis.html#scatter-plot",
     "href": "analysis.html#scatter-plot",
-    "title": "<span style='font-family:Georgia, serif; font-size:30px; font-weight:bold;'>🛒 Online Shopping Behavior</span>",
-    "section": "Scatter Plot",
-    "text": "Scatter Plot\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis chart shows how much time users spend on product-related and administrative pages. The points are colored by traffic type, helping us see which sources bring more engaged visitors. Some traffic types result in longer visits to both sections,indicating high purchase interest or intent."
-  },
-  {
-    "objectID": "model.html",
-    "href": "model.html",
-    "title": "Modeling Purchase Intent: Feature Selection and Interpretation",
-    "section": "",
-    "text": "Model Comparison Based on Tjur’s R² (Explained Variance)\n\n\n\nmodel\nr2_tjur\n\n\n\n\nTjur’s R2…1\nPageValues + BounceRates\n31.9%\n\n\nTjur’s R2…2\nProductDuration + ExitRates\n7.3%\n\n\nTjur’s R2…3\nAll 4 Predictors\n33.3%"
+    "title": "📈 Visualizations",
+    "section": "4 Scatter Plot",
+    "text": "4 Scatter Plot\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis chart shows how much time users spend on product-related and administrative pages. The points are colored by traffic type, helping us see which sources bring more engaged visitors. Some traffic types result in longer visits to both sections,indicating high purchase interest or intent."
   },
   {
     "objectID": "model.html#comparing-predictors",
     "href": "model.html#comparing-predictors",
-    "title": "Modeling Purchase Intent: Feature Selection and Interpretation",
-    "section": "",
-    "text": "Model Comparison Based on Tjur’s R² (Explained Variance)\n\n\n\nmodel\nr2_tjur\n\n\n\n\nTjur’s R2…1\nPageValues + BounceRates\n31.9%\n\n\nTjur’s R2…2\nProductDuration + ExitRates\n7.3%\n\n\nTjur’s R2…3\nAll 4 Predictors\n33.3%"
+    "title": "🧮⚙️ Modeling Purchase Intent: Feature Selection and Interpretation",
+    "section": "1 🧪 Comparing Predictors",
+    "text": "1 🧪 Comparing Predictors\n\n\n\nModel Comparison Based on Tjur’s R² (Explained Variance)\n\n\n\nmodel\nr2_tjur\n\n\n\n\nTjur’s R2…1\nPageValues + BounceRates\n31.9%\n\n\nTjur’s R2…2\nProductDuration + ExitRates\n7.3%\n\n\nTjur’s R2…3\nAll 4 Predictors\n33.3%"
   },
   {
     "objectID": "model.html#model-formula",
     "href": "model.html#model-formula",
-    "title": "Modeling Purchase Intent: Feature Selection and Interpretation",
-    "section": "📐 Model Formula",
-    "text": "📐 Model Formula\nWe selected the final model based on the best performance (Tjur’s R²). This model helps explain how different features affect the likelihood of a purchase:\n\\[\n\\text{logit}(P(\\text{Purchase})) = \\beta_0 + \\beta_1 \\cdot \\text{PageValues} + \\beta_2 \\cdot \\text{ProductDuration} + \\beta_3 \\cdot \\text{BounceRates} + \\beta_4 \\cdot \\text{ExitRates}\n\\]\nWhere:\n\n\\(\\text{logit}(P)\\) = log odds of making a purchase\n\nPageValues = value of pages visited by the user\n\nProductDuration = time spent on product-related pages\n\nBounceRates = likelihood user left after landing\n\nExitRates = rate of exiting from a particular page\n\n\\(\\beta_0\\)–\\(\\beta_4\\) = model coefficients\n\n\n\n\n\nOdds Ratios and 95% Confidence Intervals\nSource: Online Shoppers Intention Dataset\n\n\nterm\nOdds_Ratio\nCI_low\nCI_high\n\n\n\n\n(Intercept)\n0.1362293\n0.1201786\n0.1542216\n\n\nPageValues\n1.0827848\n1.0779567\n1.0877652\n\n\nProductRelated_Duration\n1.0001316\n1.0001059\n1.0001574\n\n\nExitRates\n0.0000000\n0.0000000\n0.0000008\n\n\nBounceRates\n0.0712962\n0.0001122\n36.1970367\n\n\n\n\n\n \n\n\n\n\n\n\n\n\nFigure 1: Predicted Purchase Probability by Page Values and Bounce Rates\n\n\n\n\n\nThis heatmap shows how Page Values and Bounce Rates together affect the probability of a purchase. Higher Page Values increase purchase chances, especially when Bounce Rates are low. The warmer the color, the higher the predicted probability."
+    "title": "🧮⚙️ Modeling Purchase Intent: Feature Selection and Interpretation",
+    "section": "2 📐 Model Formula",
+    "text": "2 📐 Model Formula\nWe selected the final model based on the best performance (Tjur’s R²). This model helps explain how different features affect the likelihood of a purchase:\n\\[\n\\text{logit}(P(\\text{Purchase})) = \\beta_0 + \\beta_1 \\cdot \\text{PageValues} + \\beta_2 \\cdot \\text{ProductDuration} + \\beta_3 \\cdot \\text{BounceRates} + \\beta_4 \\cdot \\text{ExitRates}\n\\]\nWhere:\n\n\\(\\text{logit}(P)\\) = log odds of making a purchase\n\nPageValues = value of pages visited by the user\n\nProductDuration = time spent on product-related pages\n\nBounceRates = likelihood user left after landing\n\nExitRates = rate of exiting from a particular page\n\n\\(\\beta_0\\)–\\(\\beta_4\\) = model coefficients\n\n\n\n\n\nOdds Ratios and 95% Confidence Intervals\nSource: Online Shoppers Intention Dataset\n\n\nterm\nOdds_Ratio\nCI_low\nCI_high\n\n\n\n\n(Intercept)\n0.1362293\n0.1201786\n0.1542216\n\n\nPageValues\n1.0827848\n1.0779567\n1.0877652\n\n\nProductRelated_Duration\n1.0001316\n1.0001059\n1.0001574\n\n\nExitRates\n0.0000000\n0.0000000\n0.0000008\n\n\nBounceRates\n0.0712962\n0.0001122\n36.1970367\n\n\n\n\n\n \n\n\n\n\n\n\n\n\nFigure 1: Predicted Purchase Probability by Page Values and Bounce Rates\n\n\n\n\n\nThis heatmap shows how Page Values and Bounce Rates together affect the probability of a purchase. Higher Page Values increase purchase chances, especially when Bounce Rates are low. The warmer the color, the higher the predicted probability."
   },
   {
     "objectID": "model.html#key-takeaways",
     "href": "model.html#key-takeaways",
-    "title": "Modeling Purchase Intent: Feature Selection and Interpretation",
-    "section": "📌 Key Takeaways",
-    "text": "📌 Key Takeaways\n\nPageValues had the strongest positive effect on the chance of purchase.\nBounceRates and ExitRates both reduce the odds of purchase, suggesting user disinterest.\nVisitors who spent more time on product-related pages were more likely to make a purchase.\nThe final model gives simple and useful insights that can help improve the website and marketing strategies."
+    "title": "🧮⚙️ Modeling Purchase Intent: Feature Selection and Interpretation",
+    "section": "3 📌 Key Takeaways",
+    "text": "3 📌 Key Takeaways\n\nPageValues had the strongest positive effect on the chance of purchase.\nBounceRates and ExitRates both reduce the odds of purchase, suggesting user disinterest.\nVisitors who spent more time on product-related pages were more likely to make a purchase.\nThe final model gives simple and useful insights that can help improve the website and marketing strategies."
   }
 ]
