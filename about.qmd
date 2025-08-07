@@ -1,10 +1,14 @@
 ---
-format:
+title: "👤 About Me"
+format: 
   html:
     toc: true
-    toc-location: right
-    toc-title: "Page Overview"
+    toc-depth: 2
+    number-sections: true
+    theme: cosmo
+    toc-title: "About Me"
 ---
+<br>
 
 ## About Me: Abdul Hannan
 **CS graduate from UMT Lahore** who loves to travel and is passionate about **data analysis** and **machine learning**. Actively exploring **R** and **statistical modeling** to deepen my data science expertise. Always learning, always curious.

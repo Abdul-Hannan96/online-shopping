@@ -1,11 +1,14 @@
 ---
 title: "📦 Data Source"
-format:
+format: 
   html:
     toc: true
-    toc-location: right
-    toc-title: "Page Overview"
+    toc-depth: 2
+    number-sections: true
+    theme: cosmo
+    toc-title: "Data Source"
 ---
+<br>
 
 ## 🛒 Dataset Overview
 

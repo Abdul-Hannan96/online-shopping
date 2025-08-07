@@ -1,23 +1,30 @@
 ---
-format:
+title: "📘 Introduction"
+format: 
   html:
     toc: true
-    toc-location: right
-    toc-title: "Page Overview"
+    toc-depth: 2
+    number-sections: true
+    theme: cosmo
+    toc-title: "Introduction"
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
 ---
+<br>
 
 ## What Drives Online Purchases?
 
 The visualization below shows how the number of product-related pages viewed and the value of pages visited affect the likelihood of completing a purchase.
 
 ```{r}
-#| message: false
-#| warning: false
-#| echo: false
-
+#| label: load-libraries
 library(tidyverse)
 library(plotly)
-
+```
+```{r}
 # Load the real dataset
 data <- read_csv("online_shoppers_intention.csv")
 

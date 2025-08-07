@@ -1,20 +1,21 @@
 ---
-title: "Modeling Purchase Intent: Feature Selection and Interpretation"
+title: "🧮⚙️ Modeling Purchase Intent: Feature Selection and Interpretation"
 format: 
   html:
     toc: true
-    toc-location: right
-    toc-title: "🧠 Model Insights"
-    code-fold: false
-    echo: false
-    message: false
-    warning: false
-    fig-align: center
-    fig-cap-location: bottom
-    smooth-scroll: true
+    toc-depth: 2
+    number-sections: true
+    theme: cosmo
+    toc-title: "Modeling"
 execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
   cache: true
 ---
+
+<br>
 
 ## 🧪 Comparing Predictors
 
@@ -27,6 +28,7 @@ library(tidymodels)
 library(broom)
 library(marginaleffects)
 library(knitr)
+library(ggplot2)
 ```
 
 ```{r}
@@ -105,11 +107,6 @@ tidy(model3, conf.int = TRUE, exponentiate = TRUE) |>
 #| fig-align: center
 #| fig-width: 7
 #| fig-height: 5
-#| echo: false
-#| message: false
-#| warning: false
-
-library(ggplot2)
 
 new_data <- expand.grid(
   PageValues = seq(min(df$PageValues), max(df$PageValues), length.out = 100),

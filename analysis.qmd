@@ -1,15 +1,21 @@
 ---
-format:
+title: "📈 Visualizations"
+format: 
   html:
     toc: true
-    toc-location: right
-    toc-title: "Page Overview"
+    toc-depth: 2
+    number-sections: true
+    theme: cosmo
+    toc-title: "Visualizations"
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
 ---
+<br>
 ```{r}
-#| message: false
-#| warning: false
-#| echo: false
-
+#| label: load-libraries
 library(scales)
 library(stringr)
 library(tidyverse)
@@ -21,9 +27,6 @@ library(dplyr)
 
 ## Bar Chart
 ```{r}
-#| message: false
-#| warning: false
-#| echo: false
 #| fig.width: 10
 #| fig.height: 5
 
@@ -79,9 +82,6 @@ This chart reveals that returning visitors are significantly more likely to make
 ## Ridgeline Plot
 
 ```{r}
-#| message: false
-#| warning: false
-#| echo: false
 #| fig.width: 10
 #| fig.height: 5
 
@@ -121,9 +121,6 @@ This suggests that certain times of year may need better engagement strategies.
 
 ## Split Violin Plot 
 ```{r}
-#| message: false
-#| warning: false
-#| echo: false
 #| fig.width: 10
 #| fig.height: 5
 
@@ -158,13 +155,11 @@ This chart shows that bounce rates are usually higher and more spread out on wee
 
 ## Scatter Plot
 ```{r}
-#| message: false
-#| warning: false
-#| echo: false
+```{r}
 #| fig.width: 10
 #| fig.height: 5
 
-# Convert durations from seconds to minutes
+# Convert durations from seconds to minutes and prepare hover text
 data_clean <- data %>%
   mutate(
     ProductRelated_Minutes = ProductRelated_Duration / 60,
@@ -180,10 +175,28 @@ data_clean$TrafficType <- factor(data_clean$TrafficType,
                                  labels = c("Direct", "Search Engine", "Referral", 
                                             "Social Media", "Email", "Ads", "Other"))
 
-# Create plot with converted durations
-p <- ggplot(data_clean, aes(x = ProductRelated_Minutes, 
-                            y = Administrative_Minutes, 
-                            color = TrafficType)) +
+# Create formatted hover text for better readability
+data_clean <- data_clean %>%
+  mutate(
+    product_hours = ProductRelated_Minutes %/% 60,
+    product_mins = round(ProductRelated_Minutes %% 60),
+    admin_hours = Administrative_Minutes %/% 60,
+    admin_mins = round(Administrative_Minutes %% 60),
+    
+    hover_text = paste0(
+      "Product Duration: ", product_hours, "h ", product_mins, "m", "<br>",
+      "Administrative Duration: ", admin_hours, "h ", admin_mins, "m", "<br>",
+      "Traffic Type: ", TrafficType
+    )
+  )
+
+# Create ggplot
+p <- ggplot(data_clean, aes(
+  x = ProductRelated_Minutes, 
+  y = Administrative_Minutes, 
+  color = TrafficType,
+  text = hover_text   # Pass hover text here
+)) +
   geom_point(alpha = 0.6, size = 2) +
   scale_color_viridis_d(option = "C") +
   labs(
@@ -200,11 +213,13 @@ p <- ggplot(data_clean, aes(x = ProductRelated_Minutes,
       size = 18,
       face = "bold",
       color = "#333",
-      hjust = 0.5  # centers the title
+      hjust = 0.5
     )
   )
 
-ggplotly(p) %>% config(displayModeBar = FALSE)
+# Render with Plotly and show only our custom text in tooltip
+ggplotly(p, tooltip = "text") %>%
+  config(displayModeBar = FALSE)
 
 ```
 ::: {.callout-note}
